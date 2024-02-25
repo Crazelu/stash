@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import SwiftData
+import CallKit
 
 class ContactViewModel: ObservableObject {
   let persistantContainer: ModelContainer = {
@@ -55,10 +56,19 @@ class ContactViewModel: ObservableObject {
     UIApplication.shared.open(url)
   }
 
+  func reloadCallDirectory() {
+    CXCallDirectoryManager.sharedInstance.reloadExtension(withIdentifier: "com.devcrazelu.Stash.CallDirectoryExtension") { (error) in
+      if let error == error {
+        debugPrint("Error from reloadExtension: \(error)")
+      }
+    }
+  }
+
   @MainActor func addNewContact(contact: Contact) {
     do {
       persistantContainer.mainContext.insert(contact)
       try persistantContainer.mainContext.save()
+      reloadCallDirectory()
     } catch {
       debugPrint("Error from addNewContact: \(error)")
     }
@@ -94,9 +104,10 @@ class ContactViewModel: ObservableObject {
   }
 
   @MainActor func delete(contact: Contact) {
-    persistantContainer.mainContext.delete(contact)
     do {
+      persistantContainer.mainContext.delete(contact)
       try persistantContainer.mainContext.save()
+      reloadCallDirectory()
     } catch {
       debugPrint("Error from delete: \(error)")
     }
