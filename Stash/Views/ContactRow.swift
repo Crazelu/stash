@@ -48,7 +48,7 @@ struct ContactRow: View {
         ContextMenuItem(text: "Message", image: "message", action: {contactVM.sendMessage(to: contact)})
         ContextMenuItem(text: "Copy", image: "doc.on.doc", action: {contactVM.copy(contact: contact)})
         ContextMenuItem(text: "Edit", image: "square.and.pencil", action: {onEdit()})
-        ContextMenuItem(text: "Delete Contact", image: "trash", action: {contactVM.delete(contact: contact)}, role: .destructive)
+        ContextMenuItem(text: "Delete Contact", image: "trash", action: {contactVM.deleteContact(contact: contact)}, role: .destructive)
       }))
     }
 }

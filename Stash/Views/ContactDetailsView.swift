@@ -41,6 +41,11 @@ struct ContactDetailsView: View {
                 text: "message",
                 image: "message.fill"
               )
+              ActionItem(
+                action: {contactVM.copy(contact: contact)},
+                text: "Copy",
+                image: "doc.on.doc"
+              )
             }
           }
           .frame(width: proxy.size.width)

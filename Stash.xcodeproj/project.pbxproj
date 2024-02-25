@@ -7,12 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF6D40182B8BB0E90073F26D /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6D40172B8BB0E90073F26D /* Contact.swift */; };
+		FF6D40192B8BB0E90073F26D /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6D40172B8BB0E90073F26D /* Contact.swift */; };
+		FF9CEB0A2B8BE178001A3157 /* ContactEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9CEB092B8BE178001A3157 /* ContactEntity.swift */; };
+		FF9CEB0B2B8BE178001A3157 /* ContactEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9CEB092B8BE178001A3157 /* ContactEntity.swift */; };
+		FF9CEB0F2B8BF460001A3157 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF9CEB0E2B8BF460001A3157 /* Secrets.plist */; };
+		FF9CEB102B8BF460001A3157 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF9CEB0E2B8BF460001A3157 /* Secrets.plist */; };
+		FF9CEB182B8BFA91001A3157 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = FF9CEB172B8BFA91001A3157 /* .gitignore */; };
+		FF9CEB192B8BFA91001A3157 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = FF9CEB172B8BFA91001A3157 /* .gitignore */; };
 		FFD62DB62B8B2A4100FDCB75 /* StashApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD62DB52B8B2A4100FDCB75 /* StashApp.swift */; };
 		FFD62DB82B8B2A4100FDCB75 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD62DB72B8B2A4100FDCB75 /* ContentView.swift */; };
 		FFD62DBA2B8B2A4200FDCB75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFD62DB92B8B2A4200FDCB75 /* Assets.xcassets */; };
 		FFD62DBD2B8B2A4200FDCB75 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFD62DBC2B8B2A4200FDCB75 /* Preview Assets.xcassets */; };
 		FFD62DC52B8B2D5300FDCB75 /* ContactRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD62DC42B8B2D5300FDCB75 /* ContactRow.swift */; };
-		FFD62DC82B8B2D6A00FDCB75 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD62DC72B8B2D6A00FDCB75 /* Contact.swift */; };
 		FFD62DCA2B8B338500FDCB75 /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD62DC92B8B338500FDCB75 /* ContactsView.swift */; };
 		FFD62DCD2B8B33A300FDCB75 /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD62DCC2B8B33A300FDCB75 /* ContactViewModel.swift */; };
 		FFD62DCF2B8B486700FDCB75 /* NewContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD62DCE2B8B486700FDCB75 /* NewContactView.swift */; };
@@ -22,6 +29,8 @@
 		FFD62DD82B8B67A100FDCB75 /* ContactDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD62DD72B8B67A100FDCB75 /* ContactDetailsView.swift */; };
 		FFD62E272B8B9C5A00FDCB75 /* CallDirectoryHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD62E262B8B9C5A00FDCB75 /* CallDirectoryHandler.swift */; };
 		FFD62E2B2B8B9C5A00FDCB75 /* CallDirectoryExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FFD62E242B8B9C5A00FDCB75 /* CallDirectoryExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FFD62E532B8BAA7500FDCB75 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD62E522B8BAA7500FDCB75 /* DataStore.swift */; };
+		FFD62E542B8BAA7500FDCB75 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD62E522B8BAA7500FDCB75 /* DataStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,13 +58,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FF6D40172B8BB0E90073F26D /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		FF9CEB092B8BE178001A3157 /* ContactEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEntity.swift; sourceTree = "<group>"; };
+		FF9CEB0C2B8BE3E3001A3157 /* Stash.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Stash.entitlements; sourceTree = "<group>"; };
+		FF9CEB0D2B8BE40C001A3157 /* CallDirectoryExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CallDirectoryExtension.entitlements; sourceTree = "<group>"; };
+		FF9CEB0E2B8BF460001A3157 /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
+		FF9CEB172B8BFA91001A3157 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		FFD62DB22B8B2A4100FDCB75 /* Stash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFD62DB52B8B2A4100FDCB75 /* StashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StashApp.swift; sourceTree = "<group>"; };
 		FFD62DB72B8B2A4100FDCB75 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FFD62DB92B8B2A4200FDCB75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FFD62DBC2B8B2A4200FDCB75 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FFD62DC42B8B2D5300FDCB75 /* ContactRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactRow.swift; sourceTree = "<group>"; };
-		FFD62DC72B8B2D6A00FDCB75 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		FFD62DC92B8B338500FDCB75 /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
 		FFD62DCC2B8B33A300FDCB75 /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
 		FFD62DCE2B8B486700FDCB75 /* NewContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewContactView.swift; sourceTree = "<group>"; };
@@ -66,6 +80,7 @@
 		FFD62E242B8B9C5A00FDCB75 /* CallDirectoryExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CallDirectoryExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFD62E262B8B9C5A00FDCB75 /* CallDirectoryHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallDirectoryHandler.swift; sourceTree = "<group>"; };
 		FFD62E282B8B9C5A00FDCB75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FFD62E522B8BAA7500FDCB75 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +104,7 @@
 		FFD62DA92B8B2A4100FDCB75 = {
 			isa = PBXGroup;
 			children = (
+				FF9CEB172B8BFA91001A3157 /* .gitignore */,
 				FFD62DB42B8B2A4100FDCB75 /* Stash */,
 				FFD62E252B8B9C5A00FDCB75 /* CallDirectoryExtension */,
 				FFD62DB32B8B2A4100FDCB75 /* Products */,
@@ -107,6 +123,7 @@
 		FFD62DB42B8B2A4100FDCB75 /* Stash */ = {
 			isa = PBXGroup;
 			children = (
+				FF9CEB0C2B8BE3E3001A3157 /* Stash.entitlements */,
 				FFD62DD02B8B53A700FDCB75 /* Utils */,
 				FFD62DCB2B8B339100FDCB75 /* ViewModels */,
 				FFD62DC62B8B2D5B00FDCB75 /* Models */,
@@ -115,6 +132,7 @@
 				FFD62DB72B8B2A4100FDCB75 /* ContentView.swift */,
 				FFD62DB92B8B2A4200FDCB75 /* Assets.xcassets */,
 				FFD62DBB2B8B2A4200FDCB75 /* Preview Content */,
+				FF9CEB0E2B8BF460001A3157 /* Secrets.plist */,
 			);
 			path = Stash;
 			sourceTree = "<group>";
@@ -143,7 +161,8 @@
 		FFD62DC62B8B2D5B00FDCB75 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FFD62DC72B8B2D6A00FDCB75 /* Contact.swift */,
+				FF6D40172B8BB0E90073F26D /* Contact.swift */,
+				FF9CEB092B8BE178001A3157 /* ContactEntity.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -152,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				FFD62DCC2B8B33A300FDCB75 /* ContactViewModel.swift */,
+				FFD62E522B8BAA7500FDCB75 /* DataStore.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -167,6 +187,7 @@
 		FFD62E252B8B9C5A00FDCB75 /* CallDirectoryExtension */ = {
 			isa = PBXGroup;
 			children = (
+				FF9CEB0D2B8BE40C001A3157 /* CallDirectoryExtension.entitlements */,
 				FFD62E262B8B9C5A00FDCB75 /* CallDirectoryHandler.swift */,
 				FFD62E282B8B9C5A00FDCB75 /* Info.plist */,
 			);
@@ -254,7 +275,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF9CEB182B8BFA91001A3157 /* .gitignore in Resources */,
 				FFD62DBD2B8B2A4200FDCB75 /* Preview Assets.xcassets in Resources */,
+				FF9CEB0F2B8BF460001A3157 /* Secrets.plist in Resources */,
 				FFD62DBA2B8B2A4200FDCB75 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,6 +286,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF9CEB192B8BFA91001A3157 /* .gitignore in Resources */,
+				FF9CEB102B8BF460001A3157 /* Secrets.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,13 +298,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFD62DC82B8B2D6A00FDCB75 /* Contact.swift in Sources */,
 				FFD62DD82B8B67A100FDCB75 /* ContactDetailsView.swift in Sources */,
 				FFD62DCD2B8B33A300FDCB75 /* ContactViewModel.swift in Sources */,
 				FFD62DB82B8B2A4100FDCB75 /* ContentView.swift in Sources */,
 				FFD62DCF2B8B486700FDCB75 /* NewContactView.swift in Sources */,
+				FF9CEB0A2B8BE178001A3157 /* ContactEntity.swift in Sources */,
 				FFD62DB62B8B2A4100FDCB75 /* StashApp.swift in Sources */,
+				FFD62E532B8BAA7500FDCB75 /* DataStore.swift in Sources */,
 				FFD62DCA2B8B338500FDCB75 /* ContactsView.swift in Sources */,
+				FF6D40182B8BB0E90073F26D /* Contact.swift in Sources */,
 				FFD62DC52B8B2D5300FDCB75 /* ContactRow.swift in Sources */,
 				FFD62DD62B8B614000FDCB75 /* EditContactView.swift in Sources */,
 				FFD62DD22B8B53BA00FDCB75 /* Constants.swift in Sources */,
@@ -291,7 +318,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF9CEB0B2B8BE178001A3157 /* ContactEntity.swift in Sources */,
 				FFD62E272B8B9C5A00FDCB75 /* CallDirectoryHandler.swift in Sources */,
+				FFD62E542B8BAA7500FDCB75 /* DataStore.swift in Sources */,
+				FF6D40192B8BB0E90073F26D /* Contact.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +461,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Stash/Stash.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Stash/Preview Content\"";
@@ -462,6 +493,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Stash/Stash.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Stash/Preview Content\"";
@@ -491,6 +523,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGN_ENTITLEMENTS = CallDirectoryExtension/CallDirectoryExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A83BPKB32J;
@@ -517,6 +550,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGN_ENTITLEMENTS = CallDirectoryExtension/CallDirectoryExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A83BPKB32J;

@@ -11,29 +11,52 @@ import SwiftData
 import CallKit
 
 class ContactViewModel: ObservableObject {
-  let persistantContainer: ModelContainer = {
+  let callDirectoryID = "com.devcrazelu.Stash.CallDirectoryExtension"
+  let dataStore = DataStore()
+
+  let persistantContainer: ModelContainer
+
+  init() {
     do {
-      let container = try ModelContainer(
+      persistantContainer = try ModelContainer(
         for: Contact.self,
         configurations: ModelConfiguration(for: Contact.self)
       )
-      return container
     } catch {
-      fatalError("Failed to create a container")
+      fatalError("Could not initialize ModelContainer")
     }
-  }()
+  }
 
   @Published var contacts: [Contact] = []
 
-  @MainActor func getContacts() {
-    do {
+  func checkCallDirectoryExtensionStatus(onDisabled: @escaping () -> Void)  {
+    CXCallDirectoryManager.sharedInstance.getEnabledStatusForExtension(withIdentifier: callDirectoryID) {
+      status, error in
+      if let error = error {
+        debugPrint("ERROR FROM getEnabledStatusForExtension: \(error)")
+      }
+      if (status.rawValue != 2) {
+        onDisabled()
+      }
+    }
+  }
+
+  func goToSettings() {
+    CXCallDirectoryManager.sharedInstance.openSettings { error in
+      if let error = error {
+        debugPrint("ERROR FROM openSettings: \(error)")
+      }
+    }
+  }
+
+  @MainActor func getContacts() {    do {
       let predicate = #Predicate<Contact> { object in
         !object.phoneNumber.isEmpty
       }
       let descriptor = FetchDescriptor(predicate: predicate)
-      let object = try persistantContainer.mainContext.fetch(descriptor)
-      contacts = object
+      contacts = try persistantContainer.mainContext.fetch(descriptor)
       sortContacts()
+      reloadCallDirectory()
     } catch {
       debugPrint("Error from getContacts: \(error)")
       return
@@ -52,23 +75,26 @@ class ContactViewModel: ObservableObject {
   }
 
   func callNumber(number: String) {
-    guard let url = URL(string: "tel:\(number)") else { return }
+    guard let url = URL(string: "tel:+\(number)") else { return }
     UIApplication.shared.open(url)
   }
 
   func reloadCallDirectory() {
     CXCallDirectoryManager.sharedInstance.reloadExtension(
-      withIdentifier: "com.devcrazelu.Stash.CallDirectoryExtension", completionHandler: { (error) in
-       if let error = error {
-        debugPrint("Error from reloadExtension: \(error)")
-      }
-    })
+      withIdentifier: callDirectoryID, completionHandler: { (error) in
+        if let error = error {
+          debugPrint("Error from reloadExtension: \(error)")
+        } else {
+          debugPrint("Reloaded extension")
+        }
+      })
   }
 
   @MainActor func addNewContact(contact: Contact) {
     do {
       persistantContainer.mainContext.insert(contact)
       try persistantContainer.mainContext.save()
+      dataStore.addContact(contact: contact)
       reloadCallDirectory()
     } catch {
       debugPrint("Error from addNewContact: \(error)")
@@ -90,24 +116,26 @@ class ContactViewModel: ObservableObject {
       }
       persistantContainer.mainContext.delete(oldContact)
       try persistantContainer.mainContext.save()
+      dataStore.deleteContact(id: contact.id)
       addNewContact(
         contact: Contact(
-            id: contact.id,
-            phoneNumber: contact.phoneNumber,
-            firstName: contact.firstName,
-            lastName: contact.lastName,
-            blocked: contact.blocked
-          )
+          id: contact.id,
+          phoneNumber: contact.phoneNumber,
+          firstName: contact.firstName,
+          lastName: contact.lastName,
+          blocked: contact.blocked
+        )
       )
     } catch {
       debugPrint("Error from editContact: \(error)")
     }
   }
 
-  @MainActor func delete(contact: Contact) {
+  @MainActor func deleteContact(contact: Contact) {
     do {
       persistantContainer.mainContext.delete(contact)
       try persistantContainer.mainContext.save()
+      dataStore.deleteContact(id: contact.id)
       reloadCallDirectory()
     } catch {
       debugPrint("Error from delete: \(error)")
@@ -116,12 +144,12 @@ class ContactViewModel: ObservableObject {
   }
 
   func sendMessage(to contact: Contact) {
-    guard let url = URL(string: "sms:\(contact.phoneNumber)") else { return }
+    guard let url = URL(string: "sms:+\(contact.phoneNumber)") else { return }
     UIApplication.shared.open(url)
   }
 
   func copy(contact: Contact) {
-    UIPasteboard.general.string = contact.phoneNumber
+    UIPasteboard.general.string = "+\(contact.phoneNumber)"
   }
 
   @MainActor func block(contact: Contact) {

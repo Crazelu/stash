@@ -9,13 +9,16 @@ import Foundation
 import CallKit
 
 class CallDirectoryHandler: CXCallDirectoryProvider {
+  let dataStore = DataStore()
 
   override func beginRequest(with context: CXCallDirectoryExtensionContext) {
     context.delegate = self
 
     // TODO: Optimize this flow and not remove entries everytime
-    context.removeAllBlockingEntries()
-    context.removeAllIdentificationEntries()
+    if(context.isIncremental){
+      context.removeAllBlockingEntries()
+      context.removeAllIdentificationEntries()
+    }
 
     addAllBlockingPhoneNumbers(to: context)
     addAllIdentificationPhoneNumbers(to: context)
@@ -43,7 +46,8 @@ class CallDirectoryHandler: CXCallDirectoryProvider {
     // consider only loading a subset of numbers at a given time and using autorelease pool(s) to release objects allocated during each batch of numbers which are loaded.
     //
     // Numbers must be provided in numerically ascending order.
-    let allPhoneNumbers: [CXCallDirectoryPhoneNumber] = [ 1_408_555_5555, 1_800_555_5555 ]
+    let allPhoneNumbers: [CXCallDirectoryPhoneNumber] = dataStore.getBlockedPhoneNumbers()
+    print("GOT Blocked Phone numbers -> \(allPhoneNumbers)")
     for phoneNumber in allPhoneNumbers {
       context.addBlockingEntry(withNextSequentialPhoneNumber: phoneNumber)
     }
@@ -70,8 +74,11 @@ class CallDirectoryHandler: CXCallDirectoryProvider {
     // consider only loading a subset of numbers at a given time and using autorelease pool(s) to release objects allocated during each batch of numbers which are loaded.
     //
     // Numbers must be provided in numerically ascending order.
-    let allPhoneNumbers: [CXCallDirectoryPhoneNumber] = [ 1_877_555_5555, 1_888_555_5555 ]
-    let labels = [ "Telemarketer", "Local business" ]
+    let allPhoneNumbers: [CXCallDirectoryPhoneNumber] = dataStore.getPhoneNumbers()
+    let labels = dataStore.getLabels()
+
+    print("GOT Phone numbers -> \(allPhoneNumbers)")
+    print("GOT Phone Labels -> \(labels)")
 
     for (phoneNumber, label) in zip(allPhoneNumbers, labels) {
       context.addIdentificationEntry(withNextSequentialPhoneNumber: phoneNumber, label: label)
@@ -96,7 +103,6 @@ class CallDirectoryHandler: CXCallDirectoryProvider {
 
     // Record the most-recently loaded set of identification entries in data store for the next incremental load...
   }
-
 }
 
 extension CallDirectoryHandler: CXCallDirectoryExtensionContextDelegate {

@@ -10,12 +10,11 @@ import SwiftData
 
 @Model
 final class Contact: Identifiable {
-  @Attribute(.unique) var id: String
+  var id: String
   var phoneNumber: String
   var firstName: String
   var lastName: String
   var blocked: Bool
-
 
   init(id: String, phoneNumber: String, firstName: String, lastName: String, blocked: Bool) {
     self.phoneNumber = phoneNumber
@@ -58,8 +57,18 @@ final class Contact: Identifiable {
     name.first?.uppercased() ?? ""
   }
 
+  var map: [String: Any] {
+    return [
+      "id": id,
+      "phoneNumber": phoneNumber,
+      "firstName": firstName,
+      "lastName": lastName,
+      "blocked": blocked
+    ]
+  }
+
   static let contacts: [Contact] = [
-    Contact(phoneNumber: "07069423448", firstName: "Lucky", lastName: "Ebere"),
-    Contact(phoneNumber: "08060016745", firstName: "Daddy")
+    Contact(phoneNumber: "01011111111", firstName: "Lucky", lastName: "Ebere"),
+    Contact(phoneNumber: "02011111111", firstName: "Crazelu")
   ]
 }

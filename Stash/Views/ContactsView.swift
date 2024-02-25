@@ -12,6 +12,7 @@ struct ContactsView: View {
   @State private var isNewContactSheetVisible = false
   @State private var isEditContactSheetVisible = false
   @State private var contactToEdit: Contact? = nil
+  @State private var isExtensionStatusAlertVisible = false
 
   var body: some View {
     NavigationView {
@@ -55,6 +56,16 @@ struct ContactsView: View {
           contactVM.editContact(contact: editedContact)
         }
       }
+      .alert(isPresented: $isExtensionStatusAlertVisible, content: {
+        Alert(
+          title: Text("Call Directory Extension Disabled"),
+          message: Text("Open settings, click on Call Blocking & Identification and enable Stash from the list of Call Identification Apps"),
+          primaryButton: .default(Text("Enable"), action: {
+            contactVM.goToSettings()
+          }),
+          secondaryButton: .cancel()
+        )
+      })
       .toolbar {
         if(!contactVM.contacts.isEmpty) {
           Button(action: {isNewContactSheetVisible.toggle()}) {
@@ -65,6 +76,9 @@ struct ContactsView: View {
     }
     .onAppear {
       contactVM.getContacts()
+      contactVM.checkCallDirectoryExtensionStatus {
+        isExtensionStatusAlertVisible.toggle()
+      }
     }
   }
 }

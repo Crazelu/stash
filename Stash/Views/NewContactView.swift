@@ -32,10 +32,11 @@ struct NewContactView: View {
         Spacer()
         Button("Done") {
           onDone(
-            Contact(phoneNumber: phoneNumber,
-                    firstName: firstName,
-                    lastName: lastName
-                   )
+            Contact(
+              phoneNumber: phoneNumber,
+              firstName: firstName,
+              lastName: lastName
+            )
           )
           dismiss()
         }
@@ -47,7 +48,7 @@ struct NewContactView: View {
         Section {
           TextField("First name", text: $firstName)
           TextField("Last name", text: $lastName)
-          TextField("Phone number", text: $phoneNumber)
+          TextField("Phone number (with country code)", text: $phoneNumber)
             .keyboardType(.numberPad)
         }
       }
