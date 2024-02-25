@@ -10,9 +10,10 @@ import SwiftUI
 struct ContactDetailsView: View {
   @Environment(\.dismiss) var dismiss
   @EnvironmentObject private var contactVM: ContactViewModel
+  @State private var isEditContactSheetVisible = false
+  @State private var contactToEdit: Contact? = nil
 
   let contact: Contact
-  let onEdit: () -> Void
 
   var body: some View {
     GeometryReader { proxy in
@@ -64,7 +65,7 @@ struct ContactDetailsView: View {
           Button(role: .destructive) {
             contactVM.block(contact: contact)
           } label: {
-            Text("Block this Caller")
+            Text("\(contact.blocked ? "Unblock" : "Block") this Caller")
               .frame(width: proxy.size.width * 0.9, alignment: .leading)
               .padding(12)
               .background(AppConstants.Colors.gray)
@@ -81,14 +82,22 @@ struct ContactDetailsView: View {
             .background(AppConstants.Colors.gray)
             .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
         },
-        trailing: Button(action: onEdit) {
+        trailing:Button(action: { 
+          contactToEdit = contact
+          isEditContactSheetVisible.toggle()
+        }) {
           Text("Edit")
             .padding(.vertical, 8)
             .padding(.horizontal, 12)
             .background(AppConstants.Colors.gray)
             .cornerRadius(20)
         }
-    ) .tint(.white)
+      ) .tint(.white)
+        .sheet(isPresented: $isEditContactSheetVisible) {
+          EditContactView(contact: $contactToEdit) { id, editedContact in
+            contactVM.editContact(for: id, contact: editedContact)
+          }
+        }
     }
   }
 }
@@ -116,6 +125,6 @@ struct ActionItem: View {
 }
 
 #Preview {
-  ContactDetailsView(contact: Contact.contacts.first!, onEdit: {})
+  ContactDetailsView(contact: Contact.contacts.first!)
     .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
 }

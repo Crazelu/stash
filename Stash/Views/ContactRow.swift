@@ -31,7 +31,7 @@ struct ContactRow: View {
             .font(.title3)
           Spacer()
           NavigationLink {
-            ContactDetailsView(contact: contact, onEdit: onEdit)
+            ContactDetailsView(contact: contact)
           } label: {
             Image(systemName: "info.circle")
               .resizable()

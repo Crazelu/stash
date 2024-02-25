@@ -41,7 +41,6 @@ struct ContactsView: View {
               )
 
             }
-            .onDelete(perform: contactVM.deleteContact)
           }
           .padding(.top)
         }

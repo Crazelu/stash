@@ -6,23 +6,48 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Contact: Identifiable {
-  let id = UUID()
+@Model
+final class Contact: Identifiable {
+  @Attribute(.unique) var id: String
   var phoneNumber: String
   var firstName: String
   var lastName: String
+  var blocked: Bool
+
+
+  init(id: String, phoneNumber: String, firstName: String, lastName: String, blocked: Bool) {
+    self.phoneNumber = phoneNumber
+    self.firstName = firstName
+    self.lastName = lastName
+    self.blocked = blocked
+    self.id = id
+  }
+
+
+  init(phoneNumber: String, firstName: String, lastName: String, blocked: Bool) {
+    self.phoneNumber = phoneNumber
+    self.firstName = firstName
+    self.lastName = lastName
+    self.blocked = blocked
+    self.id = UUID().uuidString
+  }
 
   init(phoneNumber: String, firstName: String, lastName: String) {
     self.phoneNumber = phoneNumber
     self.firstName = firstName
     self.lastName = lastName
+    self.blocked = false
+    self.id = UUID().uuidString
   }
 
   init(phoneNumber: String, firstName: String){
     self.phoneNumber = phoneNumber
     self.firstName = firstName
     self.lastName = ""
+    self.blocked = false
+    self.id = UUID().uuidString
   }
 
   var name: String {

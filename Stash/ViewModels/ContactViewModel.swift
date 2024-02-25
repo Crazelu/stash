@@ -7,13 +7,37 @@
 
 import Foundation
 import SwiftUI
+import SwiftData
 
 class ContactViewModel: ObservableObject {
+  let persistantContainer: ModelContainer = {
+    do {
+      let container = try ModelContainer(
+        for: Contact.self,
+        configurations: ModelConfiguration(for: Contact.self)
+      )
+      return container
+    } catch {
+      fatalError("Failed to create a container")
+    }
+  }()
+
   @Published var contacts: [Contact] = []
 
-  func getContacts() {
-    contacts = Contact.contacts
-    sortContacts()
+  @MainActor func getContacts() {
+    do {
+      let predicate = #Predicate<Contact> { object in
+        !object.phoneNumber.isEmpty
+      }
+      let descriptor = FetchDescriptor(predicate: predicate)
+      let object = try persistantContainer.mainContext.fetch(descriptor)
+      contacts = object
+      sortContacts()
+    } catch {
+      debugPrint("Error from getContacts: \(error)")
+      return
+    }
+
   }
 
   func sortContacts() {
@@ -31,26 +55,52 @@ class ContactViewModel: ObservableObject {
     UIApplication.shared.open(url)
   }
 
-  func addNewContact(contact: Contact) {
-    contacts.append(contact)
-    sortContacts()
-  }
-
-  func editContact(for id: UUID, contact: Contact) {
-    contacts.removeAll { c in
-      id == c.id
+  @MainActor func addNewContact(contact: Contact) {
+    do {
+      persistantContainer.mainContext.insert(contact)
+      try persistantContainer.mainContext.save()
+    } catch {
+      debugPrint("Error from addNewContact: \(error)")
     }
-    addNewContact(contact: contact)
+    getContacts()
   }
 
-  func deleteContact(at offset: IndexSet) {
-    contacts.remove(atOffsets: offset)
-  }
-
-  func delete(contact: Contact) {
-    contacts.removeAll { c in
-      contact.id == c.id
+  func getContact(with id: String) throws -> Contact? {
+    return contacts.first { contact in
+      contact.id == id
     }
+  }
+
+  @MainActor func editContact(for id: String, contact: Contact) {
+    do {
+      guard let oldContact = try getContact(with: id) else {
+        debugPrint("Couldn't find contact for \(id)")
+        return
+      }
+      persistantContainer.mainContext.delete(oldContact)
+      try persistantContainer.mainContext.save()
+      addNewContact(
+        contact: Contact(
+            id: oldContact.id,
+            phoneNumber: contact.phoneNumber,
+            firstName: contact.firstName,
+            lastName: contact.lastName,
+            blocked: contact.blocked
+          )
+      )
+    } catch {
+      debugPrint("Error from editContact: \(error)")
+    }
+  }
+
+  @MainActor func delete(contact: Contact) {
+    persistantContainer.mainContext.delete(contact)
+    do {
+      try persistantContainer.mainContext.save()
+    } catch {
+      debugPrint("Error from delete: \(error)")
+    }
+    getContacts()
   }
 
   func sendMessage(to contact: Contact) {
@@ -62,7 +112,15 @@ class ContactViewModel: ObservableObject {
     UIPasteboard.general.string = contact.phoneNumber
   }
 
-  func block(contact: Contact) {
-    
+  @MainActor func block(contact: Contact) {
+    editContact(
+      for: contact.id,
+      contact: Contact(
+        phoneNumber: contact.phoneNumber,
+        firstName: contact.firstName,
+        lastName: contact.lastName,
+        blocked: !contact.blocked
+      )
+    )
   }
 }

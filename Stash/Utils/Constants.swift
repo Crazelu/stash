@@ -11,6 +11,6 @@ enum AppConstants {
   static let padding: CGFloat = 16
   enum Colors {
     static let textColor = Color("TextColor")
-    static let gray = Color("Gray")
+    static let gray = Color("GrayColor")
   }
 }

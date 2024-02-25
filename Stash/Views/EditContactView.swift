@@ -10,7 +10,7 @@ import SwiftUI
 struct EditContactView: View {
 
   let contact: Binding<Contact?>
-  let onDone: (UUID, Contact) -> Void
+  let onDone: (String, Contact) -> Void
 
   @Environment(\.dismiss) var dismiss
   @State private var firstName = ""
@@ -39,7 +39,8 @@ struct EditContactView: View {
             Contact(
               phoneNumber: phoneNumber,
               firstName: firstName,
-              lastName: lastName
+              lastName: lastName,
+              blocked: contact.wrappedValue!.blocked
             )
           )
           dismiss()
