@@ -43,8 +43,8 @@
             filePath = "CallDirectoryExtension/CallDirectoryHandler.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "addOrRemoveIncrementalBlockingPhoneNumbers(to:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -59,8 +59,8 @@
             filePath = "CallDirectoryExtension/CallDirectoryHandler.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "addAllIdentificationPhoneNumbers(to:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -13,7 +13,7 @@ class DataStore {
   let userDefaults: UserDefaults
 
    init() {
-     guard let filePath = Bundle.main.path(forResource: "Secrets", ofType: "plist") else {
+     guard let filePath = Bundle.main.path(forResource: "Keys", ofType: "plist") else {
        userDefaults = UserDefaults.standard
        contactsKey = "DEFAULT"
        return

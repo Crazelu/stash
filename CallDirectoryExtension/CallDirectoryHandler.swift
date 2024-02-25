@@ -47,7 +47,6 @@ class CallDirectoryHandler: CXCallDirectoryProvider {
     //
     // Numbers must be provided in numerically ascending order.
     let allPhoneNumbers: [CXCallDirectoryPhoneNumber] = dataStore.getBlockedPhoneNumbers()
-    print("GOT Blocked Phone numbers -> \(allPhoneNumbers)")
     for phoneNumber in allPhoneNumbers {
       context.addBlockingEntry(withNextSequentialPhoneNumber: phoneNumber)
     }
@@ -76,9 +75,6 @@ class CallDirectoryHandler: CXCallDirectoryProvider {
     // Numbers must be provided in numerically ascending order.
     let allPhoneNumbers: [CXCallDirectoryPhoneNumber] = dataStore.getPhoneNumbers()
     let labels = dataStore.getLabels()
-
-    print("GOT Phone numbers -> \(allPhoneNumbers)")
-    print("GOT Phone Labels -> \(labels)")
 
     for (phoneNumber, label) in zip(allPhoneNumbers, labels) {
       context.addIdentificationEntry(withNextSequentialPhoneNumber: phoneNumber, label: label)
