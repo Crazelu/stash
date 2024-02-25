@@ -20,12 +20,12 @@ After you've cloned this project, run the `CallDirectoryExtension` scheme and ch
 - [ ] Choose country code
 
 ## Screenshots
-<img src="https://raw.githubusercontent.com/Crazelu/stash/main/screenshots/screen1.png" width="280" alt="Stash screenshot 1">
-<img src="https://raw.githubusercontent.com/Crazelu/stash/main/screenshots/screen2.png" width="280" alt="Stash screenshot 2"> 
-<img src="https://raw.githubusercontent.com/Crazelu/stash/main/screenshots/screen3.png" width="280" alt="Stash screenshot 3"> 
-<img src="https://raw.githubusercontent.com/Crazelu/stash/main/screenshots/screen4.png" width="280" alt="Stash screenshot 4"> 
-<img src="https://raw.githubusercontent.com/Crazelu/stash/main/screenshots/screen5.png" width="280" alt="Stash screenshot 5"> 
-<img src="https://raw.githubusercontent.com/Crazelu/stash/main/screenshots/screen6.jpg" width="280" alt="Stash screenshot 6"> 
+<img src="https://raw.githubusercontent.com/Crazelu/stash/main/screenshots/001.png" width="280" alt="Stash screenshot 1">
+<img src="https://raw.githubusercontent.com/Crazelu/stash/main/screenshots/002.png" width="280" alt="Stash screenshot 2"> 
+<img src="https://raw.githubusercontent.com/Crazelu/stash/main/screenshots/003.png" width="280" alt="Stash screenshot 3"> 
+<img src="https://raw.githubusercontent.com/Crazelu/stash/main/screenshots/004.png" width="280" alt="Stash screenshot 4"> 
+<img src="https://raw.githubusercontent.com/Crazelu/stash/main/screenshots/005.png" width="280" alt="Stash screenshot 5"> 
+<img src="https://raw.githubusercontent.com/Crazelu/stash/main/screenshots/006.jpg" width="280" alt="Stash screenshot 6"> 
 
 ### What About Android?
 
