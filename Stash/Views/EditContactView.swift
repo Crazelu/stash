@@ -10,7 +10,7 @@ import SwiftUI
 struct EditContactView: View {
 
   let contact: Binding<Contact?>
-  let onDone: (String, Contact) -> Void
+  let onEdit: (Contact) -> Void
 
   @Environment(\.dismiss) var dismiss
   @State private var firstName = ""
@@ -34,9 +34,9 @@ struct EditContactView: View {
           .fontWeight(.semibold)
         Spacer()
         Button("Done") {
-          onDone(
-            contact.wrappedValue!.id,
+          onEdit(
             Contact(
+              id: contact.wrappedValue!.id,
               phoneNumber: phoneNumber,
               firstName: firstName,
               lastName: lastName,
@@ -67,6 +67,9 @@ struct EditContactView: View {
 }
 
 #Preview {
-  EditContactView(contact: .constant(Contact.contacts.first!), onDone: { id, contact in })
-    .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
+  EditContactView(
+    contact: .constant(Contact.contacts.first!),
+    onEdit: {contact in }
+  )
+  .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
 }

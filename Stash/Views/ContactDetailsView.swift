@@ -94,8 +94,8 @@ struct ContactDetailsView: View {
         }
       ) .tint(.white)
         .sheet(isPresented: $isEditContactSheetVisible) {
-          EditContactView(contact: $contactToEdit) { id, editedContact in
-            contactVM.editContact(for: id, contact: editedContact)
+          EditContactView(contact: $contactToEdit) { editedContact in
+            contactVM.editContact(contact: editedContact)
           }
         }
     }

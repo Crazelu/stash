@@ -71,17 +71,17 @@ class ContactViewModel: ObservableObject {
     }
   }
 
-  @MainActor func editContact(for id: String, contact: Contact) {
+  @MainActor func editContact(contact: Contact) {
     do {
-      guard let oldContact = try getContact(with: id) else {
-        debugPrint("Couldn't find contact for \(id)")
+      guard let oldContact = try getContact(with: contact.id) else {
+        debugPrint("Couldn't find contact for \(contact.id)")
         return
       }
       persistantContainer.mainContext.delete(oldContact)
       try persistantContainer.mainContext.save()
       addNewContact(
         contact: Contact(
-            id: oldContact.id,
+            id: contact.id,
             phoneNumber: contact.phoneNumber,
             firstName: contact.firstName,
             lastName: contact.lastName,
@@ -114,8 +114,8 @@ class ContactViewModel: ObservableObject {
 
   @MainActor func block(contact: Contact) {
     editContact(
-      for: contact.id,
       contact: Contact(
+        id: contact.id,
         phoneNumber: contact.phoneNumber,
         firstName: contact.firstName,
         lastName: contact.lastName,

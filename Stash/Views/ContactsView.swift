@@ -51,8 +51,8 @@ struct ContactsView: View {
           contactVM.addNewContact(contact: contact)
         }
       }.sheet(isPresented: $isEditContactSheetVisible) {
-        EditContactView(contact: $contactToEdit) { id, editedContact in
-          contactVM.editContact(for: id, contact: editedContact)
+        EditContactView(contact: $contactToEdit) { editedContact in
+          contactVM.editContact(contact: editedContact)
         }
       }
       .toolbar {
