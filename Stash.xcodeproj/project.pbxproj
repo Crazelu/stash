@@ -11,6 +11,15 @@
 		FFD62DB82B8B2A4100FDCB75 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD62DB72B8B2A4100FDCB75 /* ContentView.swift */; };
 		FFD62DBA2B8B2A4200FDCB75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFD62DB92B8B2A4200FDCB75 /* Assets.xcassets */; };
 		FFD62DBD2B8B2A4200FDCB75 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFD62DBC2B8B2A4200FDCB75 /* Preview Assets.xcassets */; };
+		FFD62DC52B8B2D5300FDCB75 /* ContactRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD62DC42B8B2D5300FDCB75 /* ContactRow.swift */; };
+		FFD62DC82B8B2D6A00FDCB75 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD62DC72B8B2D6A00FDCB75 /* Contact.swift */; };
+		FFD62DCA2B8B338500FDCB75 /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD62DC92B8B338500FDCB75 /* ContactsView.swift */; };
+		FFD62DCD2B8B33A300FDCB75 /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD62DCC2B8B33A300FDCB75 /* ContactViewModel.swift */; };
+		FFD62DCF2B8B486700FDCB75 /* NewContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD62DCE2B8B486700FDCB75 /* NewContactView.swift */; };
+		FFD62DD22B8B53BA00FDCB75 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD62DD12B8B53BA00FDCB75 /* Constants.swift */; };
+		FFD62DD42B8B5A3D00FDCB75 /* ContextMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD62DD32B8B5A3D00FDCB75 /* ContextMenuItem.swift */; };
+		FFD62DD62B8B614000FDCB75 /* EditContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD62DD52B8B614000FDCB75 /* EditContactView.swift */; };
+		FFD62DD82B8B67A100FDCB75 /* ContactDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD62DD72B8B67A100FDCB75 /* ContactDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +28,15 @@
 		FFD62DB72B8B2A4100FDCB75 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FFD62DB92B8B2A4200FDCB75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FFD62DBC2B8B2A4200FDCB75 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FFD62DC42B8B2D5300FDCB75 /* ContactRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactRow.swift; sourceTree = "<group>"; };
+		FFD62DC72B8B2D6A00FDCB75 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		FFD62DC92B8B338500FDCB75 /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
+		FFD62DCC2B8B33A300FDCB75 /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
+		FFD62DCE2B8B486700FDCB75 /* NewContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewContactView.swift; sourceTree = "<group>"; };
+		FFD62DD12B8B53BA00FDCB75 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FFD62DD32B8B5A3D00FDCB75 /* ContextMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuItem.swift; sourceTree = "<group>"; };
+		FFD62DD52B8B614000FDCB75 /* EditContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactView.swift; sourceTree = "<group>"; };
+		FFD62DD72B8B67A100FDCB75 /* ContactDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +69,10 @@
 		FFD62DB42B8B2A4100FDCB75 /* Stash */ = {
 			isa = PBXGroup;
 			children = (
+				FFD62DD02B8B53A700FDCB75 /* Utils */,
+				FFD62DCB2B8B339100FDCB75 /* ViewModels */,
+				FFD62DC62B8B2D5B00FDCB75 /* Models */,
+				FFD62DC32B8B2AAE00FDCB75 /* Views */,
 				FFD62DB52B8B2A4100FDCB75 /* StashApp.swift */,
 				FFD62DB72B8B2A4100FDCB75 /* ContentView.swift */,
 				FFD62DB92B8B2A4200FDCB75 /* Assets.xcassets */,
@@ -65,6 +87,43 @@
 				FFD62DBC2B8B2A4200FDCB75 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FFD62DC32B8B2AAE00FDCB75 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FFD62DC42B8B2D5300FDCB75 /* ContactRow.swift */,
+				FFD62DC92B8B338500FDCB75 /* ContactsView.swift */,
+				FFD62DCE2B8B486700FDCB75 /* NewContactView.swift */,
+				FFD62DD32B8B5A3D00FDCB75 /* ContextMenuItem.swift */,
+				FFD62DD52B8B614000FDCB75 /* EditContactView.swift */,
+				FFD62DD72B8B67A100FDCB75 /* ContactDetailsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FFD62DC62B8B2D5B00FDCB75 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FFD62DC72B8B2D6A00FDCB75 /* Contact.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FFD62DCB2B8B339100FDCB75 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FFD62DCC2B8B33A300FDCB75 /* ContactViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FFD62DD02B8B53A700FDCB75 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FFD62DD12B8B53BA00FDCB75 /* Constants.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +196,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFD62DC82B8B2D6A00FDCB75 /* Contact.swift in Sources */,
+				FFD62DD82B8B67A100FDCB75 /* ContactDetailsView.swift in Sources */,
+				FFD62DCD2B8B33A300FDCB75 /* ContactViewModel.swift in Sources */,
 				FFD62DB82B8B2A4100FDCB75 /* ContentView.swift in Sources */,
+				FFD62DCF2B8B486700FDCB75 /* NewContactView.swift in Sources */,
 				FFD62DB62B8B2A4100FDCB75 /* StashApp.swift in Sources */,
+				FFD62DCA2B8B338500FDCB75 /* ContactsView.swift in Sources */,
+				FFD62DC52B8B2D5300FDCB75 /* ContactRow.swift in Sources */,
+				FFD62DD62B8B614000FDCB75 /* EditContactView.swift in Sources */,
+				FFD62DD22B8B53BA00FDCB75 /* Constants.swift in Sources */,
+				FFD62DD42B8B5A3D00FDCB75 /* ContextMenuItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

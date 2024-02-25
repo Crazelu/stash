@@ -12,6 +12,8 @@ struct StashApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+            .environmentObject(ContactViewModel())
+            .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
         }
     }
 }
