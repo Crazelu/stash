@@ -15,6 +15,8 @@
 		FF9CEB102B8BF460001A3157 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF9CEB0E2B8BF460001A3157 /* Secrets.plist */; };
 		FF9CEB182B8BFA91001A3157 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = FF9CEB172B8BFA91001A3157 /* .gitignore */; };
 		FF9CEB192B8BFA91001A3157 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = FF9CEB172B8BFA91001A3157 /* .gitignore */; };
+		FF9CEB1B2B8BFB42001A3157 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FF9CEB1A2B8BFB42001A3157 /* README.md */; };
+		FF9CEB1C2B8BFB42001A3157 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FF9CEB1A2B8BFB42001A3157 /* README.md */; };
 		FFD62DB62B8B2A4100FDCB75 /* StashApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD62DB52B8B2A4100FDCB75 /* StashApp.swift */; };
 		FFD62DB82B8B2A4100FDCB75 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD62DB72B8B2A4100FDCB75 /* ContentView.swift */; };
 		FFD62DBA2B8B2A4200FDCB75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFD62DB92B8B2A4200FDCB75 /* Assets.xcassets */; };
@@ -64,6 +66,7 @@
 		FF9CEB0D2B8BE40C001A3157 /* CallDirectoryExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CallDirectoryExtension.entitlements; sourceTree = "<group>"; };
 		FF9CEB0E2B8BF460001A3157 /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
 		FF9CEB172B8BFA91001A3157 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		FF9CEB1A2B8BFB42001A3157 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FFD62DB22B8B2A4100FDCB75 /* Stash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFD62DB52B8B2A4100FDCB75 /* StashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StashApp.swift; sourceTree = "<group>"; };
 		FFD62DB72B8B2A4100FDCB75 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -104,6 +107,7 @@
 		FFD62DA92B8B2A4100FDCB75 = {
 			isa = PBXGroup;
 			children = (
+				FF9CEB1A2B8BFB42001A3157 /* README.md */,
 				FF9CEB172B8BFA91001A3157 /* .gitignore */,
 				FFD62DB42B8B2A4100FDCB75 /* Stash */,
 				FFD62E252B8B9C5A00FDCB75 /* CallDirectoryExtension */,
@@ -277,6 +281,7 @@
 			files = (
 				FF9CEB182B8BFA91001A3157 /* .gitignore in Resources */,
 				FFD62DBD2B8B2A4200FDCB75 /* Preview Assets.xcassets in Resources */,
+				FF9CEB1B2B8BFB42001A3157 /* README.md in Resources */,
 				FF9CEB0F2B8BF460001A3157 /* Secrets.plist in Resources */,
 				FFD62DBA2B8B2A4200FDCB75 /* Assets.xcassets in Resources */,
 			);
@@ -286,6 +291,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF9CEB1C2B8BFB42001A3157 /* README.md in Resources */,
 				FF9CEB192B8BFA91001A3157 /* .gitignore in Resources */,
 				FF9CEB102B8BF460001A3157 /* Secrets.plist in Resources */,
 			);
