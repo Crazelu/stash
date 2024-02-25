@@ -43,7 +43,7 @@ struct ContactDetailsView: View {
               )
               ActionItem(
                 action: {contactVM.copy(contact: contact)},
-                text: "Copy",
+                text: "copy",
                 image: "doc.on.doc"
               )
             }
