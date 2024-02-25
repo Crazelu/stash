@@ -57,11 +57,12 @@ class ContactViewModel: ObservableObject {
   }
 
   func reloadCallDirectory() {
-    CXCallDirectoryManager.sharedInstance.reloadExtension(withIdentifier: "com.devcrazelu.Stash.CallDirectoryExtension") { (error) in
-      if let error == error {
+    CXCallDirectoryManager.sharedInstance.reloadExtension(
+      withIdentifier: "com.devcrazelu.Stash.CallDirectoryExtension", completionHandler: { (error) in
+       if let error = error {
         debugPrint("Error from reloadExtension: \(error)")
       }
-    }
+    })
   }
 
   @MainActor func addNewContact(contact: Contact) {
